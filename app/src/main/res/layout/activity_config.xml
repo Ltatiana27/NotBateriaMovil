@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_titulo"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/azul_notbateria"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_limite"
+        android:textSize="26sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/tvValorActual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="80%"
+        android:textSize="44sp"
+        android:textStyle="bold"
+        android:textColor="@color/verde_notbateria"
+        android:layout_marginBottom="12dp" />
+
+    <SeekBar
+        android:id="@+id/seekBarLimite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="50"
+        android:progress="30"
+        android:layout_marginBottom="24dp" />
+
+    <EditText
+        android:id="@+id/etLimite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="80"
+        android:text="80"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_rango"
+        android:textSize="22sp"
+        android:textColor="@color/purple_500"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_guardar"
+        android:backgroundTint="@color/verde_notbateria"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_cancelar"
+        android:backgroundTint="@color/naranja_notbateria" />
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_principal"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/azul_notbateria"
+        android:layout_marginBottom="32dp" />
+
+    <TextView
+        android:id="@+id/tvBatteryLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nivel_bateria"
+        android:textSize="20sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/tvLimiteActual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Umbral configurado: 80%"
+        android:textSize="16sp"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnConfigurar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_configurar"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnIniciar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_iniciar"
+        android:backgroundTint="@color/verde_notbateria"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnDetener"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_detener"
+        android:backgroundTint="@color/naranja_notbateria" />
+
+</LinearLayout>

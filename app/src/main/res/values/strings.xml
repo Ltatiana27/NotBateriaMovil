@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">NotBateria Móvil</string>
+    <string name="titulo_principal">NotBateria Móvil</string>
+    <string name="nivel_bateria">Nivel de batería actual: %1$d%%</string>
+    <string name="btn_configurar">Configurar umbral</string>
+    <string name="btn_iniciar">Iniciar monitoreo</string>
+    <string name="btn_detener">Detener monitoreo</string>
+    <string name="config_titulo">Configuración del umbral</string>
+    <string name="config_limite">Umbral de notificación (%):</string>
+    <string name="config_rango">Rango permitido: 50 - 100</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="notif_titulo">Batería casi llena</string>
+    <string name="notif_mensaje">La batería está al %1$d%%. Desconecta el cargador.</string>
+</resources>
