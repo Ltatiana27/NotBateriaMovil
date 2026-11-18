@@ -32,7 +32,7 @@
             android:exported="false" />
 
         <service
-            android:name=".BatteryMonitorService"
+            android:name=".services.BatteryMonitorService"
             android:foregroundServiceType="dataSync"
             android:exported="false" />
 

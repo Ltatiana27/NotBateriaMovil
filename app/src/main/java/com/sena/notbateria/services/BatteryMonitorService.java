@@ -28,10 +28,35 @@ public class BatteryMonitorService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        notificationHelper = new NotificationHelper(this);
-        dbHelper = new ConfiguracionDbHelper(this);
-        iniciarForeground();
+        android.util.Log.d("BatteryMonitor", ">>> onCreate() iniciado <<<");
+
+        try {
+            notificationHelper = new NotificationHelper(this);
+            android.util.Log.d("BatteryMonitor", "NotificationHelper creado");
+        } catch (Exception e) {
+            android.util.Log.e("BatteryMonitor", "Error NotificationHelper: " + e.getMessage(), e);
+            stopSelf();
+            return;
+        }
+
+        try {
+            dbHelper = new ConfiguracionDbHelper(this);
+            android.util.Log.d("BatteryMonitor", "DbHelper creado, límite=" + dbHelper.obtenerLimite());
+        } catch (Exception e) {
+            android.util.Log.e("BatteryMonitor", "Error DbHelper: " + e.getMessage(), e);
+        }
+
+        try {
+            iniciarForeground();
+            android.util.Log.d("BatteryMonitor", "startForeground() ejecutado con éxito");
+        } catch (Exception e) {
+            android.util.Log.e("BatteryMonitor", "Error startForeground: " + e.getMessage(), e);
+            stopSelf();
+            return;
+        }
+
         registrarReceiverBateria();
+        android.util.Log.d("BatteryMonitor", ">>> Servicio completamente iniciado <<<");
     }
 
     private void iniciarForeground() {
@@ -51,12 +76,15 @@ public class BatteryMonitorService extends Service {
             public void onReceive(Context context, Intent intent) {
                 int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
                 int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+                android.util.Log.d("BatteryMonitor", "onReceive: level=" + level + ", scale=" + scale);
                 if (level == -1 || scale == -1) return;
 
                 int porcentaje = (int) ((level / (float) scale) * 100);
                 int limite = dbHelper.obtenerLimite();
+                android.util.Log.d("BatteryMonitor", "Porcentaje=" + porcentaje + ", Límite=" + limite + ", yaNotifico=" + yaNotifico);
 
                 if (porcentaje >= limite && !yaNotifico) {
+                    android.util.Log.d("BatteryMonitor", ">>> EMITIENDO NOTIFICACIÓN DE UMBRAL <<<");
                     notificationHelper.mostrarNotificacionBateria(porcentaje);
                     yaNotifico = true;
                 }
