@@ -60,13 +60,7 @@ public class BatteryMonitorService extends Service {
     }
 
     private void iniciarForeground() {
-        Notification notificacion = new NotificationCompat.Builder(this, "notbateria_channel")
-                .setContentTitle("NotBateria activo")
-                .setContentText("Monitoreando el nivel de batería en segundo plano")
-                .setSmallIcon(android.R.drawable.ic_dialog_info)
-                .setPriority(NotificationCompat.PRIORITY_LOW)
-                .build();
-
+        Notification notificacion = notificationHelper.crearNotificacionForeground();
         startForeground(FOREGROUND_ID, notificacion);
     }
 
